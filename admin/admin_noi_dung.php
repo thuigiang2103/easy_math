@@ -39,7 +39,7 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
         
-            <a class="collapse-item" href="cap_nhat_bai_giang.php">Cập nhật</a>
+            <a class="collapse-item" href="admin_noi_dung_cap_nhat.php">Cập nhật</a>
             <a class="collapse-item" href="xoa_bai_giang_thuc_hien.php">Xóa</a>
           </div>
         </div>
@@ -53,10 +53,8 @@
         </div>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="utilities-color.html">Colors</a>
-            <a class="collapse-item" href="utilities-border.html">Borders</a>
-            <a class="collapse-item" href="utilities-animation.html">Animations</a>
-            <a class="collapse-item" href="utilities-other.html">Other</a>
+              <a class="collapse-item" href="admin_noi_dung_cap_nhat.php">Cập nhật</a>
+              <a class="collapse-item" href="xoa_bai_giang_thuc_hien.php">Xóa</a>
           </div>
         </div>
       </li>
@@ -69,10 +67,8 @@
         </div>
         <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="utilities-color.html">Colors</a>
-            <a class="collapse-item" href="utilities-border.html">Borders</a>
-            <a class="collapse-item" href="utilities-animation.html">Animations</a>
-            <a class="collapse-item" href="utilities-other.html">Other</a>
+            <a class="collapse-item" href="admin_noi_dung_cap_nhat.php">Cập nhật</a>
+            <a class="collapse-item" href="xoa_bai_giang_thuc_hien.php">Xóa</a>
           </div>
         </div>
       </li>
@@ -104,36 +100,7 @@
 
             <div class="col-lg-12">
 
-              <!-- Circle Buttons -->
-              <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">THÔNG TIN BÀI GIẢNG</h6>
-                </div>
-                <div class="card-body">
-            
-                  <!-- Circle Buttons (Default) -->
-                  <div class="mb-2">
-                  </div>            
-                    <form action="/action_page.php">
-                        <label for="fname">Tên bài</label><br>
-                        <input type="text" id="chi_tiet_ten_bai" name="tenbai" style="width:95%; height: 30px" value=""><br>
-                        <label for="lname">Video bài giảng</label><br>
-                        <input type="text" id="chi_tiet_video_bai" name="video" style="width:95%; height: 30px" value=""><br><br>
-                       
-                        <label for="myfile">File BTVN</label><br>
-                        <input type="file" id="myfile" name="myfile"><br><br>
-                         <label for="myfile">File Lời giải BTVN</label><br>
-                        <input type="file" id="myfile" name="myfile"><br><br>
-                        
-                        
-                         <input type="submit" value="Lưu"><br><br>
-                    </form> 
-                 
-                 
-              </div>
-
-             
-
+    
             </div>
 
             
@@ -156,11 +123,11 @@
 
 
   <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery.min.js"></script>
-  <script src="vendor/bootstrap.bundle.min.js"></script>
+  <script src="../vendor/jquery.min.js"></script>
+  <script src="../vendor/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery.easing.min.js"></script>
+  <script src="../vendor/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
   <script src="../js/admin.js"></script>
