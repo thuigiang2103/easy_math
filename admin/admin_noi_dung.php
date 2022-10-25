@@ -17,61 +17,74 @@
 </head>
 
 <body id="page-top">
+  <?php 
+    // Kết nối đến CSDL
+    require('../config.php');
+
+
+
+  ;?>
+
 
   <!-- Page Wrapper -->
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark  " id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
-      <div class="sidebar-brand d-flex align-items-center justify-content-center">
-        <div class="sidebar-brand-text mx-3">Easy-Math</div>
-      </div>
-
-    
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <div class="nav-link" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-          <i class="fas fa-fw fa-cog"></i>
-          <span>Bài 1</span>
-        </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
+      <div class="sidebar-brand d-flex align-items-center justify-content-center ">
+        <div class="sidebar-brand-text mx-3">Easy-Math </div>
         
-            <a class="collapse-item" href="admin_noi_dung_cap_nhat.php">Cập nhật</a>
-            <a class="collapse-item" href="xoa_bai_giang_thuc_hien.php">Xóa</a>
-          </div>
-        </div>
-      </li>
+      </div>
+   <hr class="sidebar-divider">
+    
 
-         <!-- Nav Item - Pages Collapse Menu -->
+     <?php 
+     $sql1="SELECT * FROM `tbl_chuong_trinh` WHERE th_id like 'LOP12'";
+     $chuong_trinh=mysqli_query($con,$sql1);
+     while ($chuong=mysqli_fetch_array($chuong_trinh))
+     {  ;?>
       <li class="nav-item">
-        <div class="nav-link collapsed" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+   <div class="nav-link collapsed" data-toggle="collapse" data-target="#collapsebai<?php echo $chuong["ct_chuong"]?>" aria-expanded="true" aria-controls="collapsebai<?php echo $chuong["ct_chuong"]; ?>">
           <i class="fas fa-fw fa-cog"></i>
-          <span>Bài 2</span>
+          <span style="font-weight: bolder;"><?php echo $chuong["ct_ten_chuong"];?></span>
         </div>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+        <div id="collapsebai<?php echo $chuong["ct_chuong"];  ?>" class="collapse" aria-labelledby="headingbai<?php echo $chuong["ct_chuong"];  ?>" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-              <a class="collapse-item" href="admin_noi_dung_cap_nhat.php">Cập nhật</a>
-              <a class="collapse-item" href="xoa_bai_giang_thuc_hien.php">Xóa</a>
+            <a class="collapse-item" href="admin_cap_nhat_chuong.php?id=<?php echo $chuong["ct_chuong"];?>">Cập nhật chương</a>
+            <a class="collapse-item" href="admin_xoa_chuong.php?id=<?php echo $chuong["ct_chuong"];?>">Xóa chương</a>
+            <a class="collapse-item" href="admin_them_bai_giang.php?id=<?php echo $chuong["ct_chuong"];?>">Thêm bài giảng</a>
           </div>
-        </div>
-      </li>
+        </li>
 
-   
-     <li class="nav-item">
-        <div class="nav-link collapsed" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+    <?php $sql="SELECT * FROM `chi_tiet_chuong_trinh` WHERE ct_chuong ='".$chuong["ct_chuong"]."'";
+
+      $chi_tiet=mysqli_query($con,$sql);
+     while ($row=mysqli_fetch_array($chi_tiet)) 
+         {
+         ?>   
+    <li class="nav-item ">
+        <div class="nav-link collapsed" data-toggle="collapse" data-target="#collapsebai<?php echo $row["chi_tiet_id"]?>" aria-expanded="true" aria-controls="collapsebai<?php echo $row["chi_tiet_id"]; ?>">
           <i class="fas fa-fw fa-cog"></i>
-          <span>Bài 3</span>
+          <span><?php echo $row["chi_tiet_ten_bai"];  ?></span>
         </div>
-        <div id="collapse1" class="collapse" aria-labelledby="heading1" data-parent="#accordionSidebar">
+        <div id="collapsebai<?php echo $row["chi_tiet_id"];  ?>" class="collapse" aria-labelledby="headingbai<?php echo $row["chi_tiet_id"];  ?>" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="admin_noi_dung_cap_nhat.php">Cập nhật</a>
-            <a class="collapse-item" href="xoa_bai_giang_thuc_hien.php">Xóa</a>
+            <a class="collapse-item" href="admin_noi_dung_cap_nhat.php?id=<?php echo $row["chi_tiet_id"];?>">Cập nhật</a>
+            <a class="collapse-item" href="admin_xoa_bai_giang.php?id=<?php echo $row["chi_tiet_id"];?>">Xóa</a>
           </div>
         </div>
       </li>
+       <?php } ;?>    <hr class="sidebar-divider">
+   <?php } ?> 
+      <a href="../admin/admin_them_chuong.php">
+      <p style="text-align: center;"><button type="submit" style="  height: 30px; width: 200px; border: 2px solid #fff; background: #0eb582; color: #fff;">Thêm chương</button></p></a>
+
+
+
+
+
 
     
 
@@ -92,20 +105,7 @@
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
-        <div class="container-fluid">
-
-          <!-- Page Heading -->
-
-          <div class="row">
-
-            <div class="col-lg-12">
-
-    
-            </div>
-
-            
-
-          </div>
+        
 
         </div>
         <!-- /.container-fluid -->

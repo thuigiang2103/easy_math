@@ -36,9 +36,10 @@
       <div class="sidebar-brand d-flex align-items-center justify-content-center ">
         <div class="sidebar-brand-text mx-3">Easy-Math</div>
       </div>
-         
-   <hr class="sidebar-divider">
-     <?php 
+         <hr class="sidebar-divider">
+     
+
+     <  <?php 
      $sql1="SELECT * FROM `tbl_chuong_trinh` WHERE th_id like 'LOP12'";
      $chuong_trinh=mysqli_query($con,$sql1);
      while ($chuong=mysqli_fetch_array($chuong_trinh))
@@ -72,13 +73,13 @@
             <a class="collapse-item" href="admin_noi_dung_cap_nhat.php?id=<?php echo $row["chi_tiet_id"];?>">Cập nhật</a>
             <a class="collapse-item" href="admin_xoa_bai_giang.php?id=<?php echo $row["chi_tiet_id"];?>">Xóa</a>
           </div>
-        </div>   
+        </div>     
       </li>
        <?php } ;?> <hr class="sidebar-divider">
-   <?php } ?> 
-      <a href="../admin/admin_them_chuong.php" >
+   <?php }; ?> 
+     <a href="../admin/admin_them_chuong.php" >
       <p style="text-align: center;"><button type="submit" style="  height: 30px;width: 200px;  border: 2px solid #fff; background: #0eb582; color: #fff;">Thêm chương</button></p></a>
-      </ul>
+    </ul>
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -106,7 +107,7 @@
               <!-- Circle Buttons -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">THÔNG TIN BÀI GIẢNG</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">THÊM CHƯƠNG</h6>
                 </div>
                 <div class="card-body">
             
@@ -114,52 +115,18 @@
                   <div class="mb-2">
                   </div>            
                   
-                      <?php 
-                      $id=$_GET["id"];
-                        $sql2="SELECT * FROM chi_tiet_chuong_trinh  WHERE chi_tiet_id =" .$id;
 
-                        $bai_giang2=mysqli_query($con, $sql2);
-                        $row2 = mysqli_fetch_array($bai_giang2);
-                      
-                       
-                      
-                      ;?>
-                        <form action="../admin/admin_cap_nhat_bai_giang_thuc_hien.php"method="POST" enctype="multipart/form-data">
-                
+                        <form action="../admin/admin_them_chuong_thuc_hien.php"method="POST" enctype="multipart/form-data">
+                       <label for="fname">Mã Chương</label><br>
+                       <p> <input type="text"  name="txtChuong" style="width:95%; height: 30px" value=""></p> 
 
-                        <label for="lname">Chương</label><br>
-                        <p><select style="width: 95%" name="txtChuong">
-                          <?php  
 
-                            $sql3="SELECT * FROM tbl_chuong_trinh ORDER BY ct_chuong ASC";
+                       <label for="fname">Tên chương</label><br>
+                       <p> <input type="text" name="txtTenChuong" style="width:95%; height: 30px" value=""></p>
+                     
+                   
 
-                            $bai_giang3=mysqli_query($con, $sql3);
-                            while( $row3 = mysqli_fetch_array($bai_giang3)){
-                          ;?>
-                            <option value="<?php echo $row3["ct_chuong"] ?>"><?php echo $row3["ct_ten_chuong"];  ?></option>
-                          <?php
-                          }
-                           
-                          ;?>
-
-                        </select></p>
-                         
-                       <label for="fname">Tên bài</label><br>
-                       <p> <input type="text" id="chi_tiet_ten_bai" name="txtTenBai" style="width:95%; height: 30px" value="<?php echo $row2["chi_tiet_ten_bai"] ;?>"></p>
-                        
-                        <label for="lname">Video bài giảng</label><br>
-                        <p><input type="text" id="chi_tiet_video_bai" name="txtVideo" style="width:95%; height: 30px" value="<?php echo $row2["chi_tiet_video_bai"] ;?>"></p>
-                        
-                        <label for="fname">File BTVN</label><br>
-                        <p><input type="text" id="chi_tiet_bai_tap" name="txtBTVN" style="width:95%; height: 30px" value="<?php echo $row2["chi_tiet_bai_tap"] ;?>"></p>
-
-                         <label for="fname">File lời giải BTVN</label><br>
-                       <p> <input type="text" id="chi_tiet_dap_an" name="txtGiaiBTVN" style="width:95%; height: 30px" value="<?php echo $row2["chi_tiet_dap_an"] ;?> "></p>
-
-                       <label for="fname">Ghi Chú</label><br>
-                       <p> <input type="text" id="chi_tiet_ghi_chu" name="txtGhiChu" style="width:95%; height: 30px" value="<?php echo $row2["chi_tiet_ghi_chu"] ;?> "></p>
-                         
-                         <p style="text-align: center;"><input type="hidden" name="txtID" value="<?php echo $row2["chi_tiet_id"] ;?>"><button type="submit">Lưu</button></p>
+                         <p style="text-align: center;"><button type="submit">Lưu</button></p>
                     </form> 
                  
                  

@@ -9706,7 +9706,7 @@ sidebar :: - webkit- scrollbar-thumb{
   text-transform: uppercase;
   font-weight: 800;
   font-size: 0.65rem;
-  color: #b7b9cc;
+  color: #fff;
 }
 
 .sidebar .nav-item .collapse .collapse-inner .collapse-item,
