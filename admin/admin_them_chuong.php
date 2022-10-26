@@ -14,6 +14,22 @@
   <!-- Custom styles for this template-->
   <link rel="stylesheet" type="text/css" href="../css/admin_style.css">
   <link rel="stylesheet" type="text/scss" href="../css/admin_style.scss">
+   <script type="text/javascript">
+  function check_du_lieu() {
+  
+  var chuong = document.getElementById("txtChuong").value;                          
+\
+
+\
+    if (chuong=="") {
+    window.alert("Bạn chưa điền tên chương");
+      return false;
+         }
+
+
+  return true;
+      }
+     </script>
 </head>
 
 <body id="page-top">
@@ -52,7 +68,7 @@
         <div id="collapsebai<?php echo $chuong["ct_chuong"];  ?>" class="collapse" aria-labelledby="headingbai<?php echo $chuong["ct_chuong"];  ?>" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="admin_cap_nhat_chuong.php?id=<?php echo $chuong["ct_chuong"];?>">Cập nhật chương</a>
-            <a class="collapse-item" href="admin_xoa_chuong.php?id=<?php echo $chuong["ct_chuong"];?>">Xóa chương</a>
+            <a class="collapse-item" onclick="return confirm('Bạn muốn xóa chương?');" href="admin_xoa_chuong.php?id=<?php echo $chuong["ct_chuong"];?>">Xóa chương</a>
             <a class="collapse-item" href="admin_them_bai_giang.php?id=<?php echo $chuong["ct_chuong"];?>">Thêm bài giảng</a>
           </div>
         </li>
@@ -71,7 +87,7 @@
         <div id="collapsebai<?php echo $row["chi_tiet_id"];  ?>" class="collapse" aria-labelledby="headingbai<?php echo $row["chi_tiet_id"];  ?>" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="admin_noi_dung_cap_nhat.php?id=<?php echo $row["chi_tiet_id"];?>">Cập nhật</a>
-            <a class="collapse-item" href="admin_xoa_bai_giang.php?id=<?php echo $row["chi_tiet_id"];?>">Xóa</a>
+            <a class="collapse-item" onclick="return confirm('Bạn muốn xóa bài giảng?');" href="admin_xoa_bai_giang.php?id=<?php echo $row["chi_tiet_id"];?>">Xóa</a>
           </div>
         </div>     
       </li>
@@ -116,10 +132,8 @@
                   </div>            
                   
 
-                        <form action="../admin/admin_them_chuong_thuc_hien.php"method="POST" enctype="multipart/form-data">
-                       <label for="fname">Mã Chương</label><br>
-                       <p> <input type="text"  name="txtChuong" style="width:95%; height: 30px" value=""></p> 
-
+                        <form action="../admin/admin_them_chuong_thuc_hien.php" onclick ="return check_du_lieu()" method="POST" enctype="multipart/form-data">
+                
 
                        <label for="fname">Tên chương</label><br>
                        <p> <input type="text" name="txtTenChuong" style="width:95%; height: 30px" value=""></p>

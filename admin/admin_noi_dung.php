@@ -14,8 +14,21 @@
   <!-- Custom styles for this template-->
   <link rel="stylesheet" type="text/css" href="../css/admin_style.css">
   <link rel="stylesheet" type="text/scss" href="../css/admin_style.scss">
-</head>
 
+</head>
+<style >
+  .scrollbar {
+    float: left;
+    height: 300px;
+    margin-bottom: 25px;
+    width: 15px;
+       overflow-y: scroll;
+}
+.force-overflow {
+    min-height: 450px;
+}
+
+</style>
 <body id="page-top">
   <?php 
     // Kết nối đến CSDL
@@ -27,17 +40,17 @@
 
 
   <!-- Page Wrapper -->
-  <div id="wrapper">
+  <div id="wrapper  ">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark  " id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark scrollbar  " id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
       <div class="sidebar-brand d-flex align-items-center justify-content-center ">
-        <div class="sidebar-brand-text mx-3">Easy-Math </div>
+        <div class="sidebar-brand-text mx-3 ">Easy-Math </div>
         
       </div>
-   <hr class="sidebar-divider">
+   <hr class="sidebar-divider ">
     
 
      <?php 
@@ -45,15 +58,15 @@
      $chuong_trinh=mysqli_query($con,$sql1);
      while ($chuong=mysqli_fetch_array($chuong_trinh))
      {  ;?>
-      <li class="nav-item">
-   <div class="nav-link collapsed" data-toggle="collapse" data-target="#collapsebai<?php echo $chuong["ct_chuong"]?>" aria-expanded="true" aria-controls="collapsebai<?php echo $chuong["ct_chuong"]; ?>">
+      <li class="nav-item  ">
+   <div class="nav-link collapsed  " data-toggle="collapse" data-target="#collapsebai<?php echo $chuong["ct_chuong"]?>" aria-expanded="true" aria-controls="collapsebai<?php echo $chuong["ct_chuong"]; ?>">
           <i class="fas fa-fw fa-cog"></i>
           <span style="font-weight: bolder;"><?php echo $chuong["ct_ten_chuong"];?></span>
         </div>
         <div id="collapsebai<?php echo $chuong["ct_chuong"];  ?>" class="collapse" aria-labelledby="headingbai<?php echo $chuong["ct_chuong"];  ?>" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="admin_cap_nhat_chuong.php?id=<?php echo $chuong["ct_chuong"];?>">Cập nhật chương</a>
-            <a class="collapse-item" href="admin_xoa_chuong.php?id=<?php echo $chuong["ct_chuong"];?>">Xóa chương</a>
+            <a class="collapse-item" onclick="return confirm('Bạn muốn xóa chương?');" href="admin_xoa_chuong.php?id=<?php echo $chuong["ct_chuong"];?>">Xóa chương</a>
             <a class="collapse-item" href="admin_them_bai_giang.php?id=<?php echo $chuong["ct_chuong"];?>">Thêm bài giảng</a>
           </div>
         </li>
@@ -61,18 +74,20 @@
     <?php $sql="SELECT * FROM `chi_tiet_chuong_trinh` WHERE ct_chuong ='".$chuong["ct_chuong"]."'";
 
       $chi_tiet=mysqli_query($con,$sql);
+      $i=100;
      while ($row=mysqli_fetch_array($chi_tiet)) 
          {
+          $i++;
          ?>   
     <li class="nav-item ">
-        <div class="nav-link collapsed" data-toggle="collapse" data-target="#collapsebai<?php echo $row["chi_tiet_id"]?>" aria-expanded="true" aria-controls="collapsebai<?php echo $row["chi_tiet_id"]; ?>">
+        <div class="nav-link collapsed" data-toggle="collapse" data-target="#collapsechuong<?php echo $row["chi_tiet_id"];?>" aria-expanded="true" aria-controls="collapsechuong<?php echo $row["chi_tiet_ten_bai"] ; ?>">
           <i class="fas fa-fw fa-cog"></i>
           <span><?php echo $row["chi_tiet_ten_bai"];  ?></span>
         </div>
-        <div id="collapsebai<?php echo $row["chi_tiet_id"];  ?>" class="collapse" aria-labelledby="headingbai<?php echo $row["chi_tiet_id"];  ?>" data-parent="#accordionSidebar">
+        <div id="collapsechuong<?php echo $row["chi_tiet_id"];  ?>" class="collapse" aria-labelledby="headingchuong<?php echo $row["chi_tiet_id"];  ?>" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="admin_noi_dung_cap_nhat.php?id=<?php echo $row["chi_tiet_id"];?>">Cập nhật</a>
-            <a class="collapse-item" href="admin_xoa_bai_giang.php?id=<?php echo $row["chi_tiet_id"];?>">Xóa</a>
+            <a class="collapse-item" onclick="return confirm('Bạn muốn xóa bài học?');" href="admin_xoa_bai_giang.php?id=<?php echo $row["chi_tiet_id"]; ?>">Xóa</a>
           </div>
         </div>
       </li>

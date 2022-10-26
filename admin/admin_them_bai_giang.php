@@ -10,12 +10,51 @@
   <meta name="author" content="">
 
   <title>Easy-Math</title>
+  
+   <script type="text/javascript">
+  function check_du_lieu() {
+  
+  var chuong = document.getElementById("txtChuong").value;                          
+  var ten_bai = document.getElementById("txtTenBai").value;
+  var video = document.getElementById("txtVideo").value;
+
+  if (ten_bai=="" ) {
+    window.alert("Bạn chưa điền tên bài");
+    return false;
+          }
+
+   if (video=="" ) {
+    window.alert("Bạn chưa điền video");
+      return false;
+         }
+    if (chuong=="") {
+    window.alert("Bạn chưa điền tên chương");
+      return false;
+         }
+
+
+  return true;
+      }
+     </script>
 
   <!-- Custom styles for this template-->
   <link rel="stylesheet" type="text/css" href="../css/admin_style.css">
   <link rel="stylesheet" type="text/scss" href="../css/admin_style.scss">
+ 
 </head>
+<style >
+  .scrollbar {
+    float: left;
+    height: 300px;
+    margin-bottom: 25px;
+    width: 15px;
+       overflow-y: scroll;
+}
+.force-overflow {
+    min-height: 450px;
+}
 
+</style>
 <body id="page-top">
   <?php 
     // Kết nối đến CSDL
@@ -30,7 +69,7 @@
   <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark  " id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark scrollbar " id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
       <div class="sidebar-brand d-flex align-items-center justify-content-center ">
@@ -39,7 +78,7 @@
          <hr class="sidebar-divider">
      
 
-     <  <?php 
+     <?php 
      $sql1="SELECT * FROM `tbl_chuong_trinh` WHERE th_id like 'LOP12'";
      $chuong_trinh=mysqli_query($con,$sql1);
      while ($chuong=mysqli_fetch_array($chuong_trinh))
@@ -52,7 +91,7 @@
         <div id="collapsebai<?php echo $chuong["ct_chuong"];  ?>" class="collapse" aria-labelledby="headingbai<?php echo $chuong["ct_chuong"];  ?>" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="admin_cap_nhat_chuong.php?id=<?php echo $chuong["ct_chuong"];?>">Cập nhật chương</a>
-            <a class="collapse-item" href="admin_xoa_chuong.php?id=<?php echo $chuong["ct_chuong"];?>">Xóa chương</a>
+            <a class="collapse-item" onclick="return confirm('Bạn muốn xóa chương?');" href="admin_xoa_chuong.php?id=<?php echo $chuong["ct_chuong"];?>">Xóa chương</a>
             <a class="collapse-item" href="admin_them_bai_giang.php?id=<?php echo $chuong["ct_chuong"];?>">Thêm bài giảng</a>
           </div>
         </li>
@@ -60,25 +99,27 @@
     <?php $sql="SELECT * FROM `chi_tiet_chuong_trinh` WHERE ct_chuong ='".$chuong["ct_chuong"]."'";
 
       $chi_tiet=mysqli_query($con,$sql);
+      $i=100;
      while ($row=mysqli_fetch_array($chi_tiet)) 
          {
+          $i++;
          ?>   
     <li class="nav-item ">
-        <div class="nav-link collapsed" data-toggle="collapse" data-target="#collapsebai<?php echo $row["chi_tiet_id"]?>" aria-expanded="true" aria-controls="collapsebai<?php echo $row["chi_tiet_id"]; ?>">
+        <div class="nav-link collapsed" data-toggle="collapse" data-target="#collapsechuong<?php echo $row["chi_tiet_id"];?>" aria-expanded="true" aria-controls="collapsechuong<?php echo $row["chi_tiet_ten_bai"] ; ?>">
           <i class="fas fa-fw fa-cog"></i>
           <span><?php echo $row["chi_tiet_ten_bai"];  ?></span>
         </div>
-        <div id="collapsebai<?php echo $row["chi_tiet_id"];  ?>" class="collapse" aria-labelledby="headingbai<?php echo $row["chi_tiet_id"];  ?>" data-parent="#accordionSidebar">
+        <div id="collapsechuong<?php echo $row["chi_tiet_id"];  ?>" class="collapse" aria-labelledby="headingchuong<?php echo $row["chi_tiet_id"];  ?>" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="admin_noi_dung_cap_nhat.php?id=<?php echo $row["chi_tiet_id"];?>">Cập nhật</a>
-            <a class="collapse-item" href="admin_xoa_bai_giang.php?id=<?php echo $row["chi_tiet_id"];?>">Xóa</a>
+            <a class="collapse-item" onclick="return confirm('Bạn muốn xóa bài giảng?');" href="admin_xoa_bai_giang.php?id=<?php echo $row["chi_tiet_id"];?>">Xóa</a>
           </div>
-        </div>     
+        </div>
       </li>
-       <?php } ;?> <hr class="sidebar-divider">
-   <?php }; ?> 
-     <a href="../admin/admin_them_chuong.php" >
-      <p style="text-align: center;"><button type="submit" style="  height: 30px;width: 200px;  border: 2px solid #fff; background: #0eb582; color: #fff;">Thêm chương</button></p></a>
+       <?php } ;?>    <hr class="sidebar-divider">
+   <?php } ?> 
+      <a href="../admin/admin_them_chuong.php">
+      <p style="text-align: center;"><button type="submit" style="  height: 30px; width: 200px; border: 2px solid #fff; background: #0eb582; color: #fff;">Thêm chương</button></p></a>
     </ul>
     <!-- End of Sidebar -->
 
@@ -95,28 +136,28 @@
         </nav>
         <!-- End of Topbar -->
 
-        <!-- Begin Page Content -->
+      <!-- Begin Page Content -->
         <div class="container-fluid">
 
-          <!-- Page Heading -->
+       
 
           <div class="row">
 
             <div class="col-lg-12">
 
-              <!-- Circle Buttons -->
+             
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary">THÊM CHƯƠNG</h6>
                 </div>
                 <div class="card-body">
             
-                  <!-- Circle Buttons (Default) -->
+                  
                   <div class="mb-2">
                   </div>            
                   
 
-                          <form action="../admin/admin_them_bai_giang_thuc_hien.php"method="POST" enctype="multipart/form-data">
+                          <form action="../admin/admin_them_bai_giang_thuc_hien.php"method="POST" enctype="multipart/form-data" onclick="return check_du_lieu()">
                 
 
                         <label for="lname">Chương</label><br>
@@ -151,7 +192,8 @@
                        <label for="fname">Ghi Chú</label><br>
                        <p> <input type="text" id="chi_tiet_ghi_chu" name="txtGhiChu" style="width:95%; height: 30px" value=" "></p>
                          
-                         <p style="text-align: center;"><input type="hidden" name="txtID" value=""><button type="submit">Lưu</button></p>
+
+                         <p style="text-align: center;"><input type="hidden" name="txtID" value=""><button onclick="return check_du_lieu()" type="submit">Lưu</button></p>
                     </form> 
                  
                  
