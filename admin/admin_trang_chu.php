@@ -34,6 +34,7 @@ if(isset($_POST['delete'])) {
      $message[] = 'Hủy đăng ký thành công';
 }
 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
