@@ -145,10 +145,10 @@
                 
 
                         <label for="lname">Chương</label><br>
-                        <p><select style="width: 95%" name="txtChuong">
+                        <p><select style="width: 95%" name="txtChuong" disabled>
                           <?php  
                             
-                            $sql3="SELECT * FROM tbl_chuong_trinh ORDER BY ct_chuong ASC";
+                            $sql3="SELECT * FROM tbl_chuong_trinh WHERE th_id LIKE 'LOP12' ";
 
                             $bai_giang3=mysqli_query($con, $sql3);
                             while( $row3 = mysqli_fetch_array($bai_giang3)){

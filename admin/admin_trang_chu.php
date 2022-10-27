@@ -1,37 +1,12 @@
 <?php
 @include 'config.php';
+
 session_start();
-if(isset($_SESSION['user_id'])=='')
-{
-    $user_id ='';
-} else {
-    $user_id = $_SESSION['user_id'];
-}
- 
 
+$admin_id = $_SESSION['admin_id'];
 
-if(isset($_POST['add'])) {
-   $th_id = $_POST['txtkhoahoc'];
-   $tk_id = $_POST['txtid'];
-    $dk="INSERT INTO `tbl_dang_ky_khoa_hoc` (`dk_id`, `th_id`, `tk_id`, `dk_created`) VALUES (NULL, '".$th_id."','".$tk_id."', current_timestamp()) 
-    ";
-    //echo $sql; exit();
-
-    // Thực hiện thêm mới dữ liệu
-    mysqli_query($con, $dk);
-     $message[] = 'Đăng ký thành công';
-}
-
-if(isset($_POST['delete'])) {
-   $th_id = $_POST['txtkhoahoc'];
-   $tk_id = $_POST['txtid'];
-    $dk="DELETE FROM `tbl_dang_ky_khoa_hoc` WHERE tk_id='$tk_id' AND th_id ='$th_id'
-    ";
-
-
-    // Thực hiện thêm mới dữ liệu
-    mysqli_query($con, $dk);
-     $message[] = 'Hủy đăng ký thành công';
+if(!isset($admin_id)){
+   header('location:dang_nhap.php');
 }
 
 ?>

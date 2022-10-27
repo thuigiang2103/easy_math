@@ -141,7 +141,7 @@
                         <p><select style="width: 95%" name="txtChuong">
                           <?php  
 
-                            $sql3="SELECT * FROM tbl_chuong_trinh ORDER BY ct_chuong ASC";
+                            $sql3="SELECT * FROM tbl_chuong_trinh WHERE th_id LIKE 'LOP11' ";
 
                             $bai_giang3=mysqli_query($con, $sql3);
                             while( $row3 = mysqli_fetch_array($bai_giang3)){

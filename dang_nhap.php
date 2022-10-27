@@ -16,7 +16,7 @@ if(isset($_POST['submit'])){
       if($row['tk_loai_tai_khoan'] == 'admin'){
          $_SESSION['admin_email'] = $row['tk_email'];
          $_SESSION['admin_id'] = $row['tk_id'];
-         header('location:admin_trang_chu.php');
+         header('location:admin/admin_trang_chu.php');
 
 
       }elseif($row['tk_loai_tai_khoan'] == 'user'){
