@@ -15,25 +15,7 @@
   <link rel="stylesheet" type="text/css" href="../css/admin_style.css">
 
 
-  <script type="text/javascript">
-   function check_du_lieu() {
-                          
- var ten_bai = document.getElementById("txtTenBai").value;
-  var video = document.getElementById("txtVideo").value;
 
-  if (ten_bai=="") {
-    window.alert("Bạn chưa điền tên bài");
-    return false;
-          }
-
-   if (video=="") {
-    window.alert("Bạn chưa điền video");
-      return false;
-         }
-
-  return true;
-      }
-     </script>
 </head>
 <style >
   .scrollbar {
@@ -159,7 +141,7 @@
                         $row2 = mysqli_fetch_array($bai_giang2);                       
                       
                       ;?>
-                        <form action="../admin/admin_cap_nhat_bai_giang_thuc_hien_11.php" onsubmit="return check_du_lieu()" method="POST" enctype="multipart/form-data" >
+                        <form action="../admin/admin_cap_nhat_bai_giang_thuc_hien_11.php"  method="POST" enctype="multipart/form-data" >
                 
 
                         <label for="lname">Chương</label><br>

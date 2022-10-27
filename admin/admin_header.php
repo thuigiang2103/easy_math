@@ -24,11 +24,14 @@
          <div id="user-btn" class="fas fa-user"></div>
       </div>
 
+      
       <div class="account-box">
          <p>Tên tài khoản : <span><?php echo $_SESSION['tk_ten_tai_khoan']; ?></span></p>
          <p>Email : <span><?php echo $_SESSION['tk_email']; ?></span></p>
          <a href="logout.php" class="delete-btn">Đăng xuất</a>
+         <div> <a href="login.php">Đăng nhập</a> | <a href="register.php">Đăng ký</a> </div>
       </div>
+
 
    </div>
 

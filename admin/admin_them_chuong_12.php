@@ -14,24 +14,7 @@
   <!-- Custom styles for this template-->
   <link rel="stylesheet" type="text/css" href="../css/admin_style.css">
   <link rel="stylesheet" type="text/scss" href="../css/admin_style.scss">
-   <script type="text/javascript">
-  function check_du_lieu() {
   
-  var chuong = document.getElementById("txtChuong").value;                          
-\
-
-\
-    if (chuong=="") {
-    window.alert("Bạn chưa điền tên chương");
-      return false;
-         }
-
-
-  return true;
-      }
-     </script>
-</head>
-
 <body id="page-top">
   <?php 
     // Kết nối đến CSDL
@@ -133,7 +116,7 @@
                   </div>            
                   
 
-                        <form action="../admin/admin_them_chuong_thuc_hien_12.php" onclick ="return check_du_lieu()" method="POST" enctype="multipart/form-data">
+                        <form action="../admin/admin_them_chuong_thuc_hien_12.php"  method="POST" enctype="multipart/form-data">
                 
 
                        <label for="fname">Tên chương</label><br>

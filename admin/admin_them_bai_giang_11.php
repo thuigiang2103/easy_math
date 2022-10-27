@@ -170,33 +170,9 @@
                        <p> <input type="text" id="chi_tiet_ghi_chu" name="txtGhiChu" style="width:95%; height: 30px" value=" "></p>
                          
 
-                         <p style="text-align: center;"><input type="hidden" name="txtID" value=""><button onclick =" return check_du_lieu()" type="submit">Lưu</button></p>
+                         <p style="text-align: center;"><input type="hidden" name="txtID" value=""><button type="submit">Lưu</button></p>
                     </form> 
-                                        <script type="text/javascript">
-                        function check_du_lieu() {
                         
-                        var chuong = document.getElementById("txtChuong").value;                          
-                        var ten_bai = document.getElementById("txtTenBai").value;
-                        var video = document.getElementById("txtVideo").value;
-
-                        if (ten_bai=="" ) {
-                          window.alert("Bạn chưa điền tên bài");
-                          return false;
-                                }
-
-                         if (video=="" ) {
-                          window.alert("Bạn chưa điền video");
-                            return false;
-                               }
-                          if (chuong=="") {
-                          window.alert("Bạn chưa điền tên chương");
-                            return false;
-                               }
-
-
-                        return true;
-                            }
-                           </script>
                  
               </div>
 

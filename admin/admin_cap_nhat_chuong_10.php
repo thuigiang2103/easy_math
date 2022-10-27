@@ -13,20 +13,7 @@
 
   <!-- Custom styles for this template-->
   <link rel="stylesheet" type="text/css" href="../css/admin_style.css">
-  <script type="text/javascript">
-  function check_du_lieu() {
-  
-  var chuong = document.getElementById("txtTenChuong").value;                          
-
-    if (chuong=="") {
-    window.alert("Bạn chưa điền tên chương");
-      return false;
-         }
-
-
-  return true;
-      }
-     </script>
+ 
 </head>
 <style >
   .scrollbar {
@@ -160,7 +147,7 @@
                        <label for="fname">Tên chương</label><br>
                        <p> <input type="text" id="chi_tiet_ten_chuong" name="txtTenChuong" style="width:95%; height: 30px" value="<?php echo $row2["ct_ten_chuong"] ;?>"></p>
                                                  
-                         <p style="text-align: center;"><input type="hidden" name="txtIDChuong" value="<?php echo $row2["ct_chuong"] ;?>"><button onsubmit="return check_du_lieu()" type="submit">Lưu</button></p>
+                         <p style="text-align: center;"><input type="hidden" name="txtIDChuong" value="<?php echo $row2["ct_chuong"] ;?>"><button  type="submit">Lưu</button></p>
                     </form> 
                  
                  
