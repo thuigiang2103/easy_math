@@ -20,7 +20,7 @@
         </nav>
 
       <div >
-         <a href="dang_xuat.php">Đăng xuất</a>
+         <a href="../dang_xuat.php">Đăng xuất</a>
       </div>
 
       

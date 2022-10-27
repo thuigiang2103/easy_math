@@ -2,14 +2,14 @@
 @include 'config.php';
 
 session_start();
-
 $admin_id = $_SESSION['admin_id'];
 
-if(!isset($admin_id)){
-   header('location:dang_nhap.php');
-}
-
-?>
+if(!isset($admin_id)){ ?>
+      <script type="text/javascript">
+      window.alert("Bạn không có quyền truy cập trang này. Vui lòng đăng nhập hệ thống");
+      window.location.href = "../dang_nhap.php";
+   </script>
+<?php ;} ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,7 +59,7 @@ require('../config.php'); ?>
       </div>
    <div class="box">
          <?php
-            $select_gop_y = mysqli_query($con, "SELECT * FROM `tbl_gop_y`") /*or die('query failed')*/;
+            $select_gop_y = mysqli_query($con, "SELECT * FROM `tbl_gop_y`");
             $so_gop_y = mysqli_num_rows($select_gop_y);
          ?>
          <h3><?php echo $so_gop_y; ?></h3>

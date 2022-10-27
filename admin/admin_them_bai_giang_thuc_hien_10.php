@@ -6,7 +6,7 @@ $bai_tap= $_POST['txtBTVN'];
 $giai = $_POST['txtGiaiBTVN'];
 $ghi_chu = $_POST['txtGhiChu'];
 $video = $_POST['txtVideo'];
-
+session_start();
 $admin_id = $_SESSION['admin_id'];
 
 require('../config.php');

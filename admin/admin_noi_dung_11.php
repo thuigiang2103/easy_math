@@ -1,3 +1,15 @@
+<?php
+@include 'config.php';
+
+session_start();
+$admin_id = $_SESSION['admin_id'];
+
+if(!isset($admin_id)){ ?>
+      <script type="text/javascript">
+      window.alert("Bạn không có quyền truy cập trang này. Vui lòng đăng nhập hệ thống");
+      window.location.href = "../dang_nhap.php";
+   </script>
+<?php ;} ?>
 <!DOCTYPE html>
 <html lang="en">
 
