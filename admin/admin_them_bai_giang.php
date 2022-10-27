@@ -11,35 +11,11 @@
 
   <title>Easy-Math</title>
   
-   <script type="text/javascript">
-  function check_du_lieu() {
   
-  var chuong = document.getElementById("txtChuong").value;                          
-  var ten_bai = document.getElementById("txtTenBai").value;
-  var video = document.getElementById("txtVideo").value;
-
-  if (ten_bai=="" ) {
-    window.alert("Bạn chưa điền tên bài");
-    return false;
-          }
-
-   if (video=="" ) {
-    window.alert("Bạn chưa điền video");
-      return false;
-         }
-    if (chuong=="") {
-    window.alert("Bạn chưa điền tên chương");
-      return false;
-         }
-
-
-  return true;
-      }
-     </script>
 
   <!-- Custom styles for this template-->
   <link rel="stylesheet" type="text/css" href="../css/admin_style.css">
-  <link rel="stylesheet" type="text/scss" href="../css/admin_style.scss">
+
  
 </head>
 <style >
@@ -157,7 +133,7 @@
                   </div>            
                   
 
-                          <form action="../admin/admin_them_bai_giang_thuc_hien.php"method="POST" enctype="multipart/form-data" onclick="return check_du_lieu()">
+                          <form action="../admin/admin_them_bai_giang_thuc_hien.php"method="POST" enctype="multipart/form-data" onpost="return check_du_lieu()" >
                 
 
                         <label for="lname">Chương</label><br>
@@ -193,9 +169,33 @@
                        <p> <input type="text" id="chi_tiet_ghi_chu" name="txtGhiChu" style="width:95%; height: 30px" value=" "></p>
                          
 
-                         <p style="text-align: center;"><input type="hidden" name="txtID" value=""><button onclick="return check_du_lieu()" type="submit">Lưu</button></p>
+                         <p style="text-align: center;"><input type="hidden" name="txtID" value=""><button onclick =" return check_du_lieu()" type="submit">Lưu</button></p>
                     </form> 
-                 
+                                        <script type="text/javascript">
+                        function check_du_lieu() {
+                        
+                        var chuong = document.getElementById("txtChuong").value;                          
+                        var ten_bai = document.getElementById("txtTenBai").value;
+                        var video = document.getElementById("txtVideo").value;
+
+                        if (ten_bai=="" ) {
+                          window.alert("Bạn chưa điền tên bài");
+                          return false;
+                                }
+
+                         if (video=="" ) {
+                          window.alert("Bạn chưa điền video");
+                            return false;
+                               }
+                          if (chuong=="") {
+                          window.alert("Bạn chưa điền tên chương");
+                            return false;
+                               }
+
+
+                        return true;
+                            }
+                           </script>
                  
               </div>
 
