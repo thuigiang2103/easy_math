@@ -1,6 +1,6 @@
 
 <header class="header">
-
+<link rel="stylesheet" type="text/css" href="../css/admin_style2.css">
    <div class="flex">
 
       <a href="admin_trang_chu.php" class="logo">Easy<span>Math</span></a>
@@ -29,7 +29,6 @@
          <p>Tên tài khoản : <span><?php echo $_SESSION['tk_ten_tai_khoan']; ?></span></p>
          <p>Email : <span><?php echo $_SESSION['tk_email']; ?></span></p>
          <a href="logout.php" class="delete-btn">Đăng xuất</a>
-         <div> <a href="login.php">Đăng nhập</a> | <a href="register.php">Đăng ký</a> </div>
       </div>
 
    </div>
