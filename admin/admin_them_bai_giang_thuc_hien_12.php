@@ -15,6 +15,6 @@ mysqli_query($con, $sql);
 ?>
 <script type="text/javascript">
     window.alert("Cập nhật bài giảng thành công!");
-   window.location.href = "../admin/admin_noi_dung.php";
+   window.location.href = "../admin/admin_noi_dung_12.php";
 </script>
  ?>

@@ -68,6 +68,7 @@
 
       <!-- Sidebar - Brand -->
       <div class="sidebar-brand d-flex align-items-center justify-content-center ">
+         <a href="admin_trang_chu.php" style="color: white">&#8249;</a>
         <div class="sidebar-brand-text mx-3">Easy-Math</div>
       </div>
          
@@ -84,9 +85,9 @@
         </div>
         <div id="collapsebai<?php echo $chuong["ct_chuong"];  ?>" class="collapse" aria-labelledby="headingbai<?php echo $chuong["ct_chuong"];  ?>" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="admin_cap_nhat_chuong.php?id=<?php echo $chuong["ct_chuong"];?>">Cập nhật chương</a>
-            <a class="collapse-item" onclick="return confirm('Bạn muốn xóa chương?');" href="admin_xoa_chuong.php?id=<?php echo $chuong["ct_chuong"];?>">Xóa chương</a>
-            <a class="collapse-item" href="admin_them_bai_giang.php?id=<?php echo $chuong["ct_chuong"];?>">Thêm bài giảng</a>
+            <a class="collapse-item" href="admin_cap_nhat_chuong_12.php?id=<?php echo $chuong["ct_chuong"];?>">Cập nhật chương</a>
+            <a class="collapse-item" onclick="return confirm('Bạn muốn xóa chương?');" href="admin_xoa_chuong_12.php?id=<?php echo $chuong["ct_chuong"];?>">Xóa chương</a>
+            <a class="collapse-item" href="admin_them_bai_giang_12.php?id=<?php echo $chuong["ct_chuong"];?>">Thêm bài giảng</a>
           </div>
         </li>
 
@@ -105,14 +106,14 @@
         </div>
         <div id="collapsechuong<?php echo $row["chi_tiet_id"];  ?>" class="collapse" aria-labelledby="headingchuong<?php echo $row["chi_tiet_id"];  ?>" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="admin_noi_dung_cap_nhat.php?id=<?php echo $row["chi_tiet_id"];?>">Cập nhật</a>
-            <a class="collapse-item" onclick="return confirm('Bạn muốn xóa bài giảng?');" href="admin_xoa_bai_giang.php?id=<?php echo $row["chi_tiet_id"];?>">Xóa</a>
+            <a class="collapse-item" href="admin_noi_dung_cap_nhat_12.php?id=<?php echo $row["chi_tiet_id"];?>">Cập nhật</a>
+            <a class="collapse-item" onclick="return confirm('Bạn muốn xóa bài giảng?');" href="admin_xoa_bai_giang_12.php?id=<?php echo $row["chi_tiet_id"];?>">Xóa</a>
           </div>
         </div>
       </li>
        <?php } ;?>    <hr class="sidebar-divider">
    <?php } ?> 
-      <a href="../admin/admin_them_chuong.php">
+      <a href="../admin/admin_them_chuong_12.php">
       <p style="text-align: center;"><button type="submit" style="  height: 30px; width: 200px; border: 2px solid #fff; background: #0eb582; color: #fff;">Thêm chương</button></p></a>
     </ul>
     <!-- End of Sidebar -->
@@ -158,7 +159,7 @@
                         $row2 = mysqli_fetch_array($bai_giang2);                       
                       
                       ;?>
-                        <form action="../admin/admin_cap_nhat_bai_giang_thuc_hien.php" onsubmit="return check_du_lieu()" method="POST" enctype="multipart/form-data" >
+                        <form action="../admin/admin_cap_nhat_bai_giang_thuc_hien_12.php" onsubmit="return check_du_lieu()" method="POST" enctype="multipart/form-data" >
                 
 
                         <label for="lname">Chương</label><br>

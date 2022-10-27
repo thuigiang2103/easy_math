@@ -10,13 +10,23 @@
   <meta name="author" content="">
 
   <title>Easy-Math</title>
-  
-  
 
   <!-- Custom styles for this template-->
   <link rel="stylesheet" type="text/css" href="../css/admin_style.css">
+  <script type="text/javascript">
+  function check_du_lieu() {
+  
+  var chuong = document.getElementById("txtTenChuong").value;                          
 
- 
+    if (chuong=="") {
+    window.alert("Bạn chưa điền tên chương");
+      return false;
+         }
+
+
+  return true;
+      }
+     </script>
 </head>
 <style >
   .scrollbar {
@@ -49,13 +59,13 @@
 
       <!-- Sidebar - Brand -->
       <div class="sidebar-brand d-flex align-items-center justify-content-center ">
+         <a href="admin_trang_chu.php" style="color: white">&#8249;</a>
         <div class="sidebar-brand-text mx-3">Easy-Math</div>
       </div>
-         <hr class="sidebar-divider">
-     
-
-     <?php 
-     $sql1="SELECT * FROM `tbl_chuong_trinh` WHERE th_id like 'LOP12'";
+         
+   <hr class="sidebar-divider">
+    <?php 
+     $sql1="SELECT * FROM `tbl_chuong_trinh` WHERE th_id like 'LOP11'";
      $chuong_trinh=mysqli_query($con,$sql1);
      while ($chuong=mysqli_fetch_array($chuong_trinh))
      {  ;?>
@@ -66,9 +76,9 @@
         </div>
         <div id="collapsebai<?php echo $chuong["ct_chuong"];  ?>" class="collapse" aria-labelledby="headingbai<?php echo $chuong["ct_chuong"];  ?>" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="admin_cap_nhat_chuong.php?id=<?php echo $chuong["ct_chuong"];?>">Cập nhật chương</a>
-            <a class="collapse-item" onclick="return confirm('Bạn muốn xóa chương?');" href="admin_xoa_chuong.php?id=<?php echo $chuong["ct_chuong"];?>">Xóa chương</a>
-            <a class="collapse-item" href="admin_them_bai_giang.php?id=<?php echo $chuong["ct_chuong"];?>">Thêm bài giảng</a>
+            <a class="collapse-item" href="admin_cap_nhat_chuong_11.php?id=<?php echo $chuong["ct_chuong"];?>">Cập nhật chương</a>
+            <a class="collapse-item" onclick="return confirm('Bạn muốn xóa chương?');" href="admin_xoa_chuong_11.php?id=<?php echo $chuong["ct_chuong"];?>">Xóa chương</a>
+            <a class="collapse-item" href="admin_them_bai_giang_11.php?id=<?php echo $chuong["ct_chuong"];?>">Thêm bài giảng</a>
           </div>
         </li>
 
@@ -87,14 +97,14 @@
         </div>
         <div id="collapsechuong<?php echo $row["chi_tiet_id"];  ?>" class="collapse" aria-labelledby="headingchuong<?php echo $row["chi_tiet_id"];  ?>" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="admin_noi_dung_cap_nhat.php?id=<?php echo $row["chi_tiet_id"];?>">Cập nhật</a>
-            <a class="collapse-item" onclick="return confirm('Bạn muốn xóa bài giảng?');" href="admin_xoa_bai_giang.php?id=<?php echo $row["chi_tiet_id"];?>">Xóa</a>
+            <a class="collapse-item" href="admin_noi_dung_cap_nhat_11.php?id=<?php echo $row["chi_tiet_id"];?>">Cập nhật</a>
+            <a class="collapse-item" href="admin_xoa_bai_giang_11.php?id=<?php echo $row["chi_tiet_id"];?>">Xóa</a>
           </div>
         </div>
       </li>
        <?php } ;?>    <hr class="sidebar-divider">
    <?php } ?> 
-      <a href="../admin/admin_them_chuong.php">
+      <a href="../admin/admin_them_chuong_11.php">
       <p style="text-align: center;"><button type="submit" style="  height: 30px; width: 200px; border: 2px solid #fff; background: #0eb582; color: #fff;">Thêm chương</button></p></a>
     </ul>
     <!-- End of Sidebar -->
@@ -112,90 +122,47 @@
         </nav>
         <!-- End of Topbar -->
 
-      <!-- Begin Page Content -->
+        <!-- Begin Page Content -->
         <div class="container-fluid">
 
-       
+          <!-- Page Heading -->
 
           <div class="row">
 
             <div class="col-lg-12">
 
-             
+              <!-- Circle Buttons -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">THÊM CHƯƠNG</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">THÔNG TIN BÀI GIẢNG</h6>
                 </div>
                 <div class="card-body">
             
-                  
+                  <!-- Circle Buttons (Default) -->
                   <div class="mb-2">
                   </div>            
                   
+                   <?php 
+                      $id=$_GET["id"];
+                        $sql2="SELECT * FROM tbl_chuong_trinh  WHERE ct_chuong=" .$id;
 
-                          <form action="../admin/admin_them_bai_giang_thuc_hien.php"method="POST" enctype="multipart/form-data" onpost="return check_du_lieu()" >
-                
+                        $bai_giang2=mysqli_query($con, $sql2);
+                        $row2 = mysqli_fetch_array($bai_giang2);
+                      
+                       
+                      
+                      ;?>
+                       <form action="../admin/admin_cap_nhat_chuong_thuc_hien_11.php"method="POST" enctype="multipart/form-data">
+    
+                        <label for="fname">Mã chương</label><br>
+                       <p> <input type="text" id="chi_tiet_ma_chuong" name="txtIDChuong"  style="width:95%; height: 30px" value="<?php echo $row2["ct_chuong"];?>" disabled ></p>
 
-                        <label for="lname">Chương</label><br>
-                        <p><select style="width: 95%" name="txtChuong">
-                          <?php  
-
-                            $sql3="SELECT * FROM tbl_chuong_trinh ORDER BY ct_chuong ASC";
-
-                            $bai_giang3=mysqli_query($con, $sql3);
-                            while( $row3 = mysqli_fetch_array($bai_giang3)){
-                          ;?>
-                            <option value="<?php echo $row3["ct_chuong"] ?>"><?php echo $row3["ct_ten_chuong"];  ?></option>
-                          <?php
-                          }
-                           
-                          ;?>
-
-                        </select></p>
-                         
-                       <label for="fname">Tên bài</label><br>
-                       <p> <input type="text" id="chi_tiet_ten_bai" name="txtTenBai" style="width:95%; height: 30px" value=""></p>
-                        
-                        <label for="lname">Video bài giảng</label><br>
-                        <p><input type="text" id="chi_tiet_video_bai" name="txtVideo" style="width:95%; height: 30px" value=""></p>
-                        
-                        <label for="fname">File BTVN</label><br>
-                        <p><input type="text" id="chi_tiet_bai_tap" name="txtBTVN" style="width:95%; height: 30px" value=""></p>
-
-                         <label for="fname">File lời giải BTVN</label><br>
-                       <p> <input type="text" id="chi_tiet_dap_an" name="txtGiaiBTVN" style="width:95%; height: 30px" value=""></p>
-
-                       <label for="fname">Ghi Chú</label><br>
-                       <p> <input type="text" id="chi_tiet_ghi_chu" name="txtGhiChu" style="width:95%; height: 30px" value=" "></p>
-                         
-
-                         <p style="text-align: center;"><input type="hidden" name="txtID" value=""><button onclick =" return check_du_lieu()" type="submit">Lưu</button></p>
+                       <label for="fname">Tên chương</label><br>
+                       <p> <input type="text" id="chi_tiet_ten_chuong" name="txtTenChuong" style="width:95%; height: 30px" value="<?php echo $row2["ct_ten_chuong"] ;?>"></p>
+                                                 
+                         <p style="text-align: center;"><input type="hidden" name="txtIDChuong" value="<?php echo $row2["ct_chuong"] ;?>"><button onsubmit="return check_du_lieu()" type="submit">Lưu</button></p>
                     </form> 
-                                        <script type="text/javascript">
-                        function check_du_lieu() {
-                        
-                        var chuong = document.getElementById("txtChuong").value;                          
-                        var ten_bai = document.getElementById("txtTenBai").value;
-                        var video = document.getElementById("txtVideo").value;
-
-                        if (ten_bai=="" ) {
-                          window.alert("Bạn chưa điền tên bài");
-                          return false;
-                                }
-
-                         if (video=="" ) {
-                          window.alert("Bạn chưa điền video");
-                            return false;
-                               }
-                          if (chuong=="") {
-                          window.alert("Bạn chưa điền tên chương");
-                            return false;
-                               }
-
-
-                        return true;
-                            }
-                           </script>
+                 
                  
               </div>
 

@@ -10,7 +10,7 @@
                     <ul>
                         <li><a href="admin_noi_dung_10.php">Khóa học lớp 10</a></li>
                         <li><a href="admin_noi_dung_11.php">Khóa học lớp 11</a></li>
-                        <li><a href="admin_noi_dung.php">Khóa học lớp 12</a></li>
+                        <li><a href="admin_noi_dung_12.php">Khóa học lớp 12</a></li>
                     </ul>
                 </li>
                 <li><a href="admin_quan_ly_tai_khoan.php">Quản lý tài khoản</a></li>
