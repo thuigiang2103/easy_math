@@ -56,7 +56,7 @@
          
    <hr class="sidebar-divider">
      <?php 
-     $sql1="SELECT * FROM `tbl_chuong_trinh` WHERE th_id like 'LOP12'";
+     $sql1="SELECT * FROM `tbl_chuong_trinh` WHERE th_id like 'LOP11'";
      $chuong_trinh=mysqli_query($con,$sql1);
      while ($chuong=mysqli_fetch_array($chuong_trinh))
      {  ;?>

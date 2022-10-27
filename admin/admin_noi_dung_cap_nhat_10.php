@@ -144,7 +144,7 @@
                 
 
                         <label for="lname">Chương</label><br>
-                        <p><select style="width: 95%" name="txtChuong" disabled>
+                        <p><select style="width: 95%" name="txtChuong" >
                           <?php  
                             
                             $sql3="SELECT * FROM tbl_chuong_trinh WHERE th_id LIKE 'LOP10' ";

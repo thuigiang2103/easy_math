@@ -137,22 +137,6 @@
                           <form action="../admin/admin_them_bai_giang_thuc_hien_10.php"method="POST" enctype="multipart/form-data" onpost="return check_du_lieu()" >
                 
 
-                        <label for="lname">Chương</label><br>
-                        <p><select style="width: 95%" name="txtChuong">
-                          <?php  
-
-                            $sql3="SELECT * FROM tbl_chuong_trinh WHERE th_id LIKE 'LOP10' ";
-
-                            $bai_giang3=mysqli_query($con, $sql3);
-                            while( $row3 = mysqli_fetch_array($bai_giang3)){
-                          ;?>
-                            <option value="<?php echo $row3["ct_chuong"] ?>"><?php echo $row3["ct_ten_chuong"];  ?></option>
-                          <?php
-                          }
-                           
-                          ;?>
-
-                        </select></p>
                          
                        <label for="fname">Tên bài</label><br>
                        <p> <input type="text" id="chi_tiet_ten_bai" name="txtTenBai" style="width:95%; height: 30px" value=""></p>
